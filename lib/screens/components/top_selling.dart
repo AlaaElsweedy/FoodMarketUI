@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_ui/models/data.dart';
+import 'package:food_ui/screens/detail_screen.dart';
 
 class TopSelling extends StatelessWidget {
   @override
@@ -76,7 +77,11 @@ class TopSellingList extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset("assets/images/foods/${categoryIndex.foodImage}.png"),
+          Hero(
+            tag: categoryIndex.foodImage,
+            child: Image.asset(
+                "assets/images/foods/${categoryIndex.foodImage}.png"),
+          ),
           Padding(
             padding: const EdgeInsets.only(top: 8.0),
             child: Text(
@@ -109,7 +114,15 @@ class TopSellingList extends StatelessWidget {
                       Icons.add_circle_sharp,
                       color: primaryColor,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailScreen(
+                              food: categoryIndex,
+                            ),
+                          ));
+                    },
                   ),
                 ],
               ),
