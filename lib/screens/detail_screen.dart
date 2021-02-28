@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_ui/models/data.dart';
+import 'package:food_ui/screens/cart_screen.dart';
 
 class DetailScreen extends StatefulWidget {
   final TopSellingFood food;
@@ -116,7 +117,8 @@ class _DetailScreenState extends State<DetailScreen> {
                   child: ListView(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 30, horizontal: 20),
                         child: Text(
                           "Green Cabbage – The king of cabbages and our old friend!"
                           " The wide fan-like leaves are pale green in color and with a slightly rubbery texture when raw."
@@ -126,19 +128,21 @@ class _DetailScreenState extends State<DetailScreen> {
                           " The wide fan-like leaves are pale green in color and with a slightly rubbery texture when raw."
                           " Pick heads that are tight and feel heavy for their size."
                           " The outer few layers are usually wilted and should be discarded before preparing."
-                              "Green Cabbage – The king of cabbages and our old friend!"
-                              " The wide fan-like leaves are pale green in color and with a slightly rubbery texture when raw."
-                              " Pick heads that are tight and feel heavy for their size"
-                              " The outer few layers are usually wilted and should be discarded before preparing"
-                              "Green Cabbage – The king of cabbages and our old friend!"
-                              " The wide fan-like leaves are pale green in color and with a slightly rubbery texture when raw."
-                              " Pick heads that are tight and feel heavy for their size."
-                              " The outer few layers are usually wilted and should be discarded before preparing.",
+                          "Green Cabbage – The king of cabbages and our old friend!"
+                          " The wide fan-like leaves are pale green in color and with a slightly rubbery texture when raw."
+                          " Pick heads that are tight and feel heavy for their size"
+                          " The outer few layers are usually wilted and should be discarded before preparing"
+                          "Green Cabbage – The king of cabbages and our old friend!"
+                          " The wide fan-like leaves are pale green in color and with a slightly rubbery texture when raw."
+                          " Pick heads that are tight and feel heavy for their size."
+                          " The outer few layers are usually wilted and should be discarded before preparing.",
                           textAlign: TextAlign.center,
                           style: TextStyle(color: thirdColor),
                         ),
                       ),
-                      SizedBox(height: 50,),
+                      SizedBox(
+                        height: 50,
+                      ),
                     ],
                   ),
                 ),
@@ -146,18 +150,23 @@ class _DetailScreenState extends State<DetailScreen> {
             ),
           ),
           Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
+            bottom: 10,
+            left: 10,
+            right: 10,
             child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               height: size.height * 0.1,
               width: double.infinity,
               child: RaisedButton(
                 color: primaryColor,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CartScreen(),
+                      ));
+                },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
